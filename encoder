@@ -1,0 +1,47 @@
+public class Cipher {
+    
+private char upperCase[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+private char lowerCase[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
+/*  encoder(plineText, number)
+        cipherText=""
+        LOOP i=0 UNTIL lenght(plineText)-1
+            IF plineText(i)>='A' && plineText(i)<='Z' THEN
+                LOOP j = 0 UNTIL upperCase.last element index
+                    IF plineText(i)=upperCase[j] THEN
+                        BREAK
+                cipherText=cipherText+upperCase[(j+number)%upperCase.length]
+            ELSE
+                IF plineText(i)>='a' && plineText(i)<='z' THEN
+                    LOOP j = 0 UNTIL lowerCase.last element index 
+                        IF plineText(i)=lowerCase[j] THEN
+                            BREAK
+                    cipherText=cipherText+lowerCase[(j+number)%lowerCase.length]
+                ELSE
+                    cipherText=cipherText+plainText(i)
+        return cipherText
+*/
+    public String encoder(String plineText,int number){
+        String cipherText="";
+        int j;
+        for (int i = 0; i <plineText.length(); i++) {
+            if(plineText.charAt(i)>='A'&&plineText.charAt(i)<='Z'){
+                for (j = 0; j < upperCase.length; j++) {
+                    if(plineText.charAt(i)==upperCase[j])
+                        break;
+                }
+                cipherText+=upperCase[(j+number)%upperCase.length];
+            }
+            else if(plineText.charAt(i)>='a'&&plineText.charAt(i)<='z'){
+                for (j = 0; j < lowerCase.length; j++) {
+                    if(plineText.charAt(i)==lowerCase[j])
+                        break;
+                }
+                cipherText+=lowerCase[(j+number)%lowerCase.length];
+            }
+            else
+            cipherText+=plineText.charAt(i);
+        }
+        return cipherText;
+    }
+}

@@ -27,14 +27,14 @@ private char lowerCase[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n
         String cipherText="";
         int j;
         for (int i = 0; i <plineText.length(); i++) {
-            if(plineText.charAt(i)>='A'&&plineText.charAt(i)<='Z'){
+            if(plineText.charAt(i)>='A'&&plineText.charAt(i)<='Z'){ //if current letter in upper case then
                 for (j = 0; j < upperCase.length; j++) {
-                    if(plineText.charAt(i)==upperCase[j])
+                    if(plineText.charAt(i)==upperCase[j]) //search for number of letter in alphabet
                         break;
                 }
-                cipherText+=upperCase[(j+number)%upperCase.length];
+                cipherText+=upperCase[(j+number)%upperCase.length]; //add number & if additional result is more than 26 it will back to beganing 
             }
-            else if(plineText.charAt(i)>='a'&&plineText.charAt(i)<='z'){
+            else if(plineText.charAt(i)>='a'&&plineText.charAt(i)<='z'){ //doing the same things in above but if letter in lower case
                 for (j = 0; j < lowerCase.length; j++) {
                     if(plineText.charAt(i)==lowerCase[j])
                         break;

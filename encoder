@@ -7,16 +7,16 @@ private char lowerCase[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n
         cipherText=""
         LOOP i=0 UNTIL lenght(plineText)-1
             IF plineText(i)>='A' && plineText(i)<='Z' THEN
-                LOOP j = 0 UNTIL upperCase.last element index
+                LOOP j = 0 UNTIL length(upperCase)-1 
                     IF plineText(i)=upperCase[j] THEN
                         BREAK
-                cipherText=cipherText+upperCase[(j+number)%upperCase.length]
+                cipherText=cipherText+upperCase[(j+number)%length(upperCase)]
             ELSE
                 IF plineText(i)>='a' && plineText(i)<='z' THEN
-                    LOOP j = 0 UNTIL lowerCase.last element index 
+                    LOOP j = 0 UNTIL length(lowerCase)-1
                         IF plineText(i)=lowerCase[j] THEN
                             BREAK
-                    cipherText=cipherText+lowerCase[(j+number)%lowerCase.length]
+                    cipherText=cipherText+lowerCase[(j+number)%length(lowerCase)]
                 ELSE
                     cipherText=cipherText+plainText(i)
         return cipherText

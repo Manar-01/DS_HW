@@ -1,1 +1,102 @@
+public class Node {
+    private String data;
+    private Node next;
+
+    public Node(String data) {
+        this.data = data;
+    }
+
+    public String data() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public Node next() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+    
+}
+
+public class CLL {
+    Node tail;
+    public void traversal(){
+        if(tail!=null){
+            Node c= tail.next();
+            do{
+                System.out.print(c.data()+" ");
+                c=c.next();
+            }while(c!=tail.next());
+        }
+        else
+            System.out.println("List is empty");
+    }
+    
+    public void addFirst(String e){
+        if(tail==null){ //if list empty add tail
+          tail=new Node(e);
+          tail.setNext(tail); //to make it circular
+        }
+        else{
+        Node newest=new Node(e);
+        newest.setNext(tail.next());
+        tail.setNext(newest);
+        }
+    }
+    public void addLast(String e){
+        addFirst(e);
+        tail=tail.next();
+    }
+    public void removeLast(){
+        Node head=tail.next();
+        if (head==tail)
+            tail=null;
+        else
+            tail.setNext(head.next());
+    }
+}
+
+public class Duplicate {
+    CLL list;
+
+    public Duplicate() {
+        this.list = new CLL(); //create a circular linked list
+    }
+    
+    public void insert(String str){
+        int index=0; String subString;
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i)==' '){
+                subString=str.substring(index, i); //Split string for words
+                list.addLast(subString); // add the word to cll
+                index=i+1; // index of 1st letter in next word
+            }
+        }
+        list.addLast(str.substring(index)); //add last word
+    }
+    
+    public boolean checkDuplicate(Node c){
+        boolean duplicate=false;
+        if(list.tail!=null){ //cheack if there is items
+            while(c.next()!=list.tail.next() && !(duplicate)){ //loop from head to tail & if there is duplicate stop loop
+                Node otherNode=c.next();
+                while(otherNode!=list.tail.next() && !(duplicate)){ //loop from c.next to tail
+                    if(otherNode.data().equalsIgnoreCase(c.data())){
+                        duplicate=true;
+                        break;
+                    }
+                    otherNode=otherNode.next(); //move to next
+                }
+                c=c.next();
+            }
+        }
+        return duplicate;
+    }
+}
 

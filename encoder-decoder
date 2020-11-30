@@ -4,6 +4,8 @@ private char upperCase[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N
 private char lowerCase[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 
 /*  encoder(plineText, number)
+        array of alphabet in upper case
+        array of alphabet in lower case
         cipherText=""
         LOOP i=0 UNTIL lenght(plineText)-1
             IF plineText(i)>='A' && plineText(i)<='Z' THEN

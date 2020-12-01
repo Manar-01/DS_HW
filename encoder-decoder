@@ -46,4 +46,49 @@ private char lowerCase[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n
         }
         return cipherText;
     }
+    decoder(cipherText, number)
+        array of alphabet in upper case
+        array of alphabet in lower case
+        plineText=""
+        LOOP i=0 UNTIL lenght(plineText)-1
+            IF cipherText(i)>='A' && cipherText(i)<='Z' THEN
+                LOOP j = 0 UNTIL length(upperCase)-1 
+                    IF cipherText(i)=upperCase[j] THEN
+                        BREAK
+                plineText=plineText+upperCase[(length(upperCase)+(j-number))%length(upperCase)]
+            ELSE
+                IF cipherText(i)>='a' && cipherText(i)<='z' THEN
+                    LOOP j = 0 UNTIL length(lowerCase)-1
+                        IF cipherText(i)=lowerCase[j] THEN
+                            BREAK
+                    plineText=plineText+lowerCase[(length(lowerCase)+(j-number))%length(lowerCase)]
+                ELSE
+                    plineText=plineText+cipherText(i)
+        return plineText
+*/
+
+ public String decoder(String cipherText ,int number){
+        String plineText="";
+        int j;
+        for (int i = 0; i <cipherText.length(); i++) {
+            if(cipherText.charAt(i)>='A'&&cipherText.charAt(i)<='Z'){ //if current letter in upper case then
+                for (j = 0; j < upperCase.length; j++) {
+                    if(cipherText.charAt(i)==upperCase[j]) //search for number of letter in alphabet
+                        break;
+                }
+                plineText+=upperCase[(upperCase.length+(j-number))%upperCase.length]; //Subtract number & if Subtraction result is less than 0 it will back to Ending 
+            }
+            else if(cipherText.charAt(i)>='a'&&cipherText.charAt(i)<='z'){ //doing the same things in above but if letter in lower case
+                for (j = 0; j < lowerCase.length; j++) {
+                    if(cipherText.charAt(i)==lowerCase[j])
+                        break;
+                }
+                plineText+=lowerCase[(lowerCase.length+(j-number))%lowerCase.length];
+            }
+            else
+            plineText+=cipherText.charAt(i);
+        }
+        return plineText;
 }
+
+

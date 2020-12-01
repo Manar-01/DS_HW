@@ -1,1 +1,6 @@
-
+//recursion
+        SingleyLinkedList list = new SingleyLinkedList();
+        System.out.println("Enter String: ");
+        list.insert(input.nextLine());
+        System.out.println("Reverse order: ");
+        System.out.println(list.reverse(list.head));

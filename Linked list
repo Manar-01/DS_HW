@@ -53,13 +53,6 @@ public class CLL {
         addFirst(e);
         tail=tail.next();
     }
-    public void removeLast(){
-        Node head=tail.next();
-        if (head==tail)
-            tail=null;
-        else
-            tail.setNext(head.next());
-    }
 }
 
 public class Duplicate {

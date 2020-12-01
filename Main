@@ -1,6 +1,49 @@
-//recursion
+public class DS_HW {
+public static Scanner input=new Scanner(System.in);
+
+        public static void main(String[] args) {
+        int choice;
+        do{
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("Menu:\n1-Encoder\n2-Decoder\n3-Duplicate\n4-Singley Linked List\n5-Exit");
+            System.out.print("Enter number of your option: ");
+            choice=input.nextInt();
+            System.out.println("------------------------------------------------------------------------");
+            String x=input.nextLine();
+            switch (choice) {
+                case 1:Encoder();break;
+                case 2:break;
+                case 3:Duplicate(); break;
+                case 4:singleyLinkedList();break;
+                case 5: System.out.println("GOOD BYE :)");break;
+                default:System.err.println("Try agine!!");
+                    
+            }
+        }while(choice!=5);        
+    }
+    public static void Encoder(){
+        Cipher code = new Cipher();
+        System.out.print("Enter your pline Text: ");
+        String plineText=input.nextLine();
+        System.out.print("Enter number of letter: ");
+        int number=input.nextInt();
+        System.out.println("Pline Text: "+plineText);
+        System.out.println("chipher Text: "+code.encoder(plineText, number));
+    }
+    //decoder
+    public static void Duplicate(){
+        Duplicate duplicate = new Duplicate();
+        System.out.print("Enter your Text: ");
+        String str=input.nextLine();
+        duplicate.insert(str);
+        System.out.println("Text: "+str);
+        System.out.println("Is there a duplicate? "+duplicate.checkDuplicate(duplicate.list.tail.next));
+    }
+    public static void singleyLinkedList(){
         SingleyLinkedList list = new SingleyLinkedList();
-        System.out.println("Enter String: ");
+        System.out.print("Enter String: ");
         list.insert(input.nextLine());
-        System.out.println("Reverse order: ");
+        System.out.print("Reverse order: ");
         System.out.println(list.reverse(list.head));
+    }
+}

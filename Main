@@ -5,16 +5,16 @@ public static Scanner input=new Scanner(System.in);
         int choice;
         do{
             System.out.println("------------------------------------------------------------------------");
-            System.out.println("Menu:\n1-Encoder\n2-Decoder\n3-Duplicate\n4-Singley Linked List\n5-Exit");
+            System.out.println("Menu:\n1-Encoder\n2-Decoder\n3-Duplicate\n4-Reverse\n5-Exit");
             System.out.print("Enter number of your option: ");
             choice=input.nextInt();
             System.out.println("------------------------------------------------------------------------");
             String x=input.nextLine();
             switch (choice) {
                 case 1:Encoder();break;
-                case 2:break;
+                case 2:Decoder();break;
                 case 3:Duplicate(); break;
-                case 4:singleyLinkedList();break;
+                case 4:Reverse();break;
                 case 5: System.out.println("GOOD BYE :)");break;
                 default:System.err.println("Try agine!!");
                     
@@ -30,7 +30,15 @@ public static Scanner input=new Scanner(System.in);
         System.out.println("Pline Text: "+plineText);
         System.out.println("chipher Text: "+code.encoder(plineText, number));
     }
-    //decoder
+    public static void Decoder(){
+        Cipher ci = new Cipher();
+        System.out.print("Enter your chipher Text: ");
+        String chipherText=input.nextLine();
+        System.out.print("Enter number of letter: ");
+        int number=input.nextInt();
+        System.out.println("chipher Text: "+chipherText);
+        System.out.println("Pline Text: "+ci.decoder(chipherText, number));
+        }
     public static void Duplicate(){
         Duplicate duplicate = new Duplicate();
         System.out.print("Enter your Text: ");
@@ -39,7 +47,7 @@ public static Scanner input=new Scanner(System.in);
         System.out.println("Text: "+str);
         System.out.println("Is there a duplicate? "+duplicate.checkDuplicate(duplicate.list.tail.next));
     }
-    public static void singleyLinkedList(){
+    public static void Reverse(){
         SingleyLinkedList list = new SingleyLinkedList();
         System.out.print("Enter String: ");
         list.insert(input.nextLine());
